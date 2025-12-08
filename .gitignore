@@ -1,0 +1,11 @@
+/vendor
+/build
+/coverage
+composer.lock
+.DS_Store
+.idea
+.vscode
+.phpunit.result.cache
+phpunit.xml
+.env
+*.gpx
