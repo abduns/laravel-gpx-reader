@@ -1,6 +1,17 @@
 # Laravel GPX Reader
 
-A Laravel package to read and work with GPX 1.1 files.
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/abduns/laravel-gpx-reader.svg?style=flat-square)](https://packagist.org/packages/abduns/laravel-gpx-reader)
+[![License](https://img.shields.io/packagist/l/abduns/laravel-gpx-reader.svg?style=flat-square)](https://packagist.org/packages/abduns/laravel-gpx-reader)
+
+A robust, dependency-free Laravel package to parse and work with GPX 1.1 files. Convert GPX XML into rich, type-safe PHP objects.
+
+## Features
+
+- 🚀 **GPX 1.1 Support**: Fully compliant with the GPX 1.1 schema.
+- 📦 **No External Dependencies**: Uses native PHP XML parsing.
+- 🛠 **Laravel Integration**: Includes Facade, Service Provider, and Config.
+- 🛡 **Type-Safe DTOs**: Work with rich PHP objects (`Track`, `Route`, `Waypoint`) instead of raw arrays or XML.
+- ✅ **Validation**: Optional strict mode to ensure GPX validity.
 
 ## Installation
 
