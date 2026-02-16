@@ -54,6 +54,7 @@ if ($gpx->metadata) {
 // Access Waypoints
 foreach ($gpx->waypoints as $waypoint) {
     echo "Waypoint: {$waypoint->name} ({$waypoint->latitude}, {$waypoint->longitude})";
+    echo " - Elevation: {$waypoint->elevation}"; // Access elevation
 }
 
 // Access Routes
@@ -61,6 +62,7 @@ foreach ($gpx->routes as $route) {
     echo "Route: {$route->name}";
     foreach ($route->points as $point) {
         echo " - Point: {$point->latitude}, {$point->longitude}";
+        echo " - Elevation: {$point->elevation}"; // Access elevation
     }
 }
 
@@ -69,7 +71,8 @@ foreach ($gpx->tracks as $track) {
     echo "Track: {$track->name}";
     foreach ($track->segments as $segment) {
         foreach ($segment->points as $point) {
-            echo " - Point: {$point->latitude}, {$point->longitude}, Ele: {$point->elevation}";
+            echo " - Point: {$point->latitude}, {$point->longitude}";
+            echo " - Elevation: {$point->elevation}"; // Access elevation
         }
     }
 }
