@@ -124,6 +124,56 @@ XML;
         ->and($gpx->tracks[0]->segments[1]->points)->toHaveCount(1);
 });
 
+it('can parse all point attributes', function () {
+    $xml = <<<XML
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="TestApp">
+  <wpt lat="12.34" lon="56.78">
+    <ele>100.5</ele>
+    <time>2023-10-27T10:00:00Z</time>
+    <magvar>1.2</magvar>
+    <geoidheight>2.3</geoidheight>
+    <name>PointName</name>
+    <cmt>Comment</cmt>
+    <desc>Description</desc>
+    <src>Source</src>
+    <sym>Symbol</sym>
+    <type>Type</type>
+    <fix>3d</fix>
+    <sat>5</sat>
+    <hdop>1.1</hdop>
+    <vdop>2.2</vdop>
+    <pdop>3.3</pdop>
+    <ageofdgpsdata>4.4</ageofdgpsdata>
+    <dgpsid>55</dgpsid>
+  </wpt>
+</gpx>
+XML;
+
+    $gpx = Gpx::parseFromString($xml);
+
+    $wpt = $gpx->waypoints[0];
+    expect($wpt->latitude)->toBe(12.34)
+        ->and($wpt->longitude)->toBe(56.78)
+        ->and($wpt->elevation)->toBe(100.5)
+        ->and($wpt->time->format('Y-m-d H:i:s'))->toBe('2023-10-27 10:00:00')
+        ->and($wpt->magvar)->toBe(1.2)
+        ->and($wpt->geoidheight)->toBe(2.3)
+        ->and($wpt->name)->toBe('PointName')
+        ->and($wpt->cmt)->toBe('Comment')
+        ->and($wpt->desc)->toBe('Description')
+        ->and($wpt->src)->toBe('Source')
+        ->and($wpt->sym)->toBe('Symbol')
+        ->and($wpt->type)->toBe('Type')
+        ->and($wpt->fix)->toBe('3d')
+        ->and($wpt->sat)->toBe(5)
+        ->and($wpt->hdop)->toBe(1.1)
+        ->and($wpt->vdop)->toBe(2.2)
+        ->and($wpt->pdop)->toBe(3.3)
+        ->and($wpt->ageofdgpsdata)->toBe(4.4)
+        ->and($wpt->dgpsid)->toBe('55');
+});
+
 it('throws exception for invalid XML', function () {
     $xml = 'invalid xml';
     Gpx::parseFromString($xml);

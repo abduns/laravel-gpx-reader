@@ -3,7 +3,6 @@
 A Laravel package to read and work with GPX 1.1 files.
 
 [![Tests](https://github.com/abduns/laravel-gpx-reader/actions/workflows/tests.yml/badge.svg)](https://github.com/abduns/laravel-gpx-reader/actions)
-[![Coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/abduns/laravel-gpx-reader/main/coverage.json)](https://github.com/abduns/laravel-gpx-reader)
 [![Version](https://img.shields.io/packagist/v/abduns/laravel-gpx-reader.svg)](https://packagist.org/packages/abduns/laravel-gpx-reader)
 [![Downloads](https://img.shields.io/packagist/dt/abduns/laravel-gpx-reader.svg)](https://packagist.org/packages/abduns/laravel-gpx-reader)
 [![License](https://img.shields.io/packagist/l/abduns/laravel-gpx-reader.svg)](LICENSE.md)
