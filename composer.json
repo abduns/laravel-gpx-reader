@@ -39,7 +39,7 @@
         }
     },
     "scripts": {
-        "test": "pest"
+        "test": "@php ./vendor/bin/pest"
     },
     "config": {
         "sort-packages": true,
