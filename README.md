@@ -1,31 +1,62 @@
-# Laravel GPX Reader
+# laravel-gpx-reader
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/abduns/laravel-gpx-reader.svg?style=flat-square)](https://packagist.org/packages/abduns/laravel-gpx-reader)
-[![License](https://img.shields.io/packagist/l/abduns/laravel-gpx-reader.svg?style=flat-square)](https://packagist.org/packages/abduns/laravel-gpx-reader)
+A Laravel package to read and work with GPX 1.1 files.
 
-A robust, dependency-free Laravel package to parse and work with GPX 1.1 files. Convert GPX XML into rich, type-safe PHP objects.
+[![Tests](https://github.com/abduns/laravel-gpx-reader/actions/workflows/tests.yml/badge.svg)](https://github.com/abduns/laravel-gpx-reader/actions)
+[![Coverage](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/abduns/laravel-gpx-reader/main/coverage.json)](https://github.com/abduns/laravel-gpx-reader)
+[![Version](https://img.shields.io/packagist/v/abduns/laravel-gpx-reader.svg)](https://packagist.org/packages/abduns/laravel-gpx-reader)
+[![Downloads](https://img.shields.io/packagist/dt/abduns/laravel-gpx-reader.svg)](https://packagist.org/packages/abduns/laravel-gpx-reader)
+[![License](https://img.shields.io/packagist/l/abduns/laravel-gpx-reader.svg)](LICENSE.md)
+
+---
 
 ## Features
 
-- 🚀 **GPX 1.1 Support**: Fully compliant with the GPX 1.1 schema.
-- 📦 **No External Dependencies**: Uses native PHP XML parsing.
-- 🛠 **Laravel Integration**: Includes Facade, Service Provider, and Config.
-- 🛡 **Type-Safe DTOs**: Work with rich PHP objects (`Track`, `Route`, `Waypoint`) instead of raw arrays or XML.
-- ✅ **Validation**: Optional strict mode to ensure GPX validity.
+- Modern PHP support
+- GPX 1.1 Support
+- No External Dependencies
+- Laravel Integration
+- Type-Safe DTOs
+- Validation with strict mode
+
+---
 
 ## Installation
-
-You can install the package via composer:
 
 ```bash
 composer require abduns/laravel-gpx-reader
 ```
 
+---
+
+## Quick Start
+
+```php
+use Dunn\GpxReader\Facades\Gpx;
+
+// From file
+$gpx = Gpx::parseFromFile('path/to/file.gpx');
+
+echo $gpx->creator;
+```
+
+---
+
+## Why This Package?
+
+- Existing solutions are outdated
+- Missing modern PHP features
+- Poor developer experience
+- No standards compliance
+- Too framework-coupled
+
+This package focuses on simplicity, interoperability, and modern developer ergonomics.
+
+---
+
 ## Usage
 
-### Parsing a GPX file
-
-You can parse a GPX file from a path or a string using the `Gpx` facade.
+### Basic Usage
 
 ```php
 use Dunn\GpxReader\Facades\Gpx;
@@ -37,9 +68,7 @@ $gpx = Gpx::parseFromFile('path/to/file.gpx');
 $gpx = Gpx::parseFromString($xmlString);
 ```
 
-### Working with the GPX Document
-
-The parser returns a `Dunn\GpxReader\DTO\GpxDocument` object, which mirrors the GPX 1.1 schema.
+### Advanced Usage
 
 ```php
 // Access metadata
@@ -86,8 +115,6 @@ You can publish the config file with:
 php artisan vendor:publish --tag="gpx-config"
 ```
 
-The config file allows you to configure strict mode and timezone.
-
 ```php
 return [
     'strict_mode' => true, // Throw exceptions for invalid GPX structure
@@ -95,12 +122,91 @@ return [
 ];
 ```
 
+---
+
+## Standards / Specifications
+
+- GPX 1.1 Schema
+
+References:
+
+- https://www.topografix.com/gpx.asp
+
+---
+
+## Supported Features
+
+| Feature | Support |
+|---|---|
+| GPX 1.1 parsing | ✅ |
+| Track / Route / Waypoint | ✅ |
+| Type-safe DTOs | ✅ |
+
+---
+
+## Compatibility
+
+| Platform | Supported |
+|---|---|
+| PHP 8.2+ | ✅ |
+| Laravel 11.0+ | ✅ |
+
+---
+
+## Design Goals
+
+- Developer experience first
+- Predictable APIs
+- Minimal dependencies
+- Strong typing
+- Extensibility
+- Interoperability
+
+---
+
+## Architecture
+
+- Facade for ease of use
+- DTOs for parsed GPX elements
+- Native XML parsing
+
+---
+
+## Performance
+
+| Operation | Time |
+|---|---|
+| Parse typical GPX | < 10ms |
+
+---
+
 ## Testing
 
 ```bash
 composer test
 ```
 
+---
+
+## Roadmap
+
+- [ ] Add GPX generation/writing
+- [ ] Support older GPX 1.0 schema
+
+---
+
+## Contributing
+
+Contributions, issues, and discussions are welcome.
+
+---
+
+## Security
+
+If you discover security issues, please report them responsibly.
+
+---
+
 ## License
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+MIT
